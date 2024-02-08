@@ -13,6 +13,9 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            color: white;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
         }
 
         #generateButton {
@@ -28,10 +31,78 @@
         #generateButton:hover {
             background-color: #2980b9;
         }
+
+        .box {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
     </style>
 </head>
 <body>
     <button id="generateButton">Generate a Site</button>
+
+    <div class="box">
+        <h3 style="margin-bottom: 10px;">about:blank (TURN THIS ON)</h3>
+        <label class="switch">
+            <input type="checkbox" id="cloakCheckbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
 
     <script>
         const websites = [
@@ -39,15 +110,20 @@
             'https://biology.isyour.guru/',
             'https://terrain.fenesisu.moe/',
             'https://biology.isyour.guru/',
-	    'https://physics.asoch.cl/',
-	    'https://app.magiklearning.com/',
-	    'https://users.magiklearning.com/'
+            'https://physics.asoch.cl/',
+            'https://app.magiklearning.com/',
+            'https://users.magiklearning.com/'
         ];
 
         document.getElementById('generateButton').addEventListener('click', function() {
             const randomIndex = Math.floor(Math.random() * websites.length);
             const randomSite = websites[randomIndex];
             window.location.href = randomSite;
+        });
+
+        document.getElementById('cloakCheckbox').addEventListener('change', function() {
+            const box = document.querySelector('.box');
+            box.style.display = this.checked ? 'block' : 'none';
         });
     </script>
 </body>
