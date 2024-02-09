@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Key</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
 
+        #enterKey {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #enterKeyInput {
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #submitButton {
+            padding: 10px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submitButton:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div id="enterKey">Enter Key:</div>
+    <input type="text" id="enterKeyInput" placeholder="Enter key">
+    <button id="submitButton">Submit</button>
+
+    <script>
+        const expectedKey = "KEY-JD1290VB";
+
+        document.getElementById('submitButton').addEventListener('click', function() {
+            const enteredKey = document.getElementById('enterKeyInput').value;
+            
+            if (enteredKey === expectedKey) {
+                window.location.href = 'gimkit-selfish-coopes-fox-raccoon-0592-03I1l-280.html';
+            } else {
+                alert('incorrect! :/');
+            }
+        });
+    </script>
+</body>
+</html>
